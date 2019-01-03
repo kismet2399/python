@@ -38,7 +38,7 @@ while True:
         cur_status_list = [0 for x in range(word_len)]
         if word_len == 1:
             cur_status_list[0] = 3
-            # 词的时候
+        # 词的时候
         else:
             cur_status_list[0] = 0
             cur_status_list[-1] = 2

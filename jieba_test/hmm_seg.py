@@ -1,4 +1,4 @@
-import jieba_test
+from jieba_test import hmm_train
 mod_path ='../data/model_file.txt'
 
 # 1. 加载模型参数
