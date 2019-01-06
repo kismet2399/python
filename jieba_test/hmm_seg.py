@@ -100,9 +100,9 @@ def hmm_seg_func(ch=''):
         cur_best_status = pre_best_status
         c -= 1
 
-    # d = {'0':'B','1':'M','2':'E','3':'S'}
-    # print(ch)
-    # print([d.get(str(i)) for i in best_status_lst])
+    d = {'0':'B','1':'M','2':'E','3':'S'}
+    print(ch)
+    print([d.get(str(i)) for i in best_status_lst])
 
     # 4. 实现切词
     s = ""
@@ -117,6 +117,7 @@ def hmm_seg_func(ch=''):
 # import jieba
 # print('/'.join(jieba.cut(ch,cut_all=False)))
 
+hmm_seg_func("我在八斗学习大数据和机器学习")
 if __name__ == '__main__' :
     write_path = './write_file.txt'
     read_path = './read_file.txt'
