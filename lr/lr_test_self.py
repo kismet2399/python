@@ -44,7 +44,7 @@ def plot_function(data, label, weights=None):
 
     if weights != None:
         x = arange(-3.0, 3.0, 0.1)
-        y = (weights[0] + weights[1] * x) / weights[2]  # x2=(w1*1 + w[0])/w2
+        y = -(weights[0] + weights[1] * x) / weights[2]  # x2=(w1*1 + w[0])/w2
 
     ax.plot(x, y)
 

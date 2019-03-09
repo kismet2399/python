@@ -83,6 +83,7 @@ def LoadData():
 
 
 def ComputeModel():
+    # 总文章数
     sum = 0.0
     for freq in ClassFreq.values():
         sum += freq
@@ -90,6 +91,7 @@ def ComputeModel():
         ClassProb[classid] = float(ClassFreq[classid]) / sum
 
     for classid in ClassFeatDic.keys():
+        # 该分类单词总数
         sum = 0.0
         for wid in ClassFeatDic[classid].keys():
             sum += ClassFeatDic[classid][wid]
@@ -97,7 +99,7 @@ def ComputeModel():
         # sum是当前这个类别classid中，所有单词出现的总数量
         # len(WordDic)词典大小，表示整个语料中单词的种类数（不一样的词的数量）
         # 分母变大（3,7 3/10,7/10）（3/12,7/12,2/12）
-        new_sum = float(sum + len(WordDic)) * DefautFreq
+        new_sum = float(sum + len(WordDic) * DefautFreq)
         for wid in ClassFeatDic[classid].keys():
             ClassFeatProb[classid][wid] = float(ClassFeatDic[classid][wid] + DefautFreq) / new_sum
         ClassDefaultProb[classid] = float(DefautFreq) / new_sum
@@ -106,7 +108,7 @@ def ComputeModel():
 def SaveModel():
     outfile = open(Modelfile, 'w', encoding='utf-8')
     for classid in ClassFreq.keys():
-        outfile.write(str(classid) + ' ' + str(ClassProb[classid]) + ' ' + str(ClassDefaultProb) + ' ')
+        outfile.write(str(classid) + ' ' + str(ClassProb[classid]) + ' ' + str(ClassDefaultProb[classid]) + ' ')
     outfile.write('\n')
 
     for classid in ClassFeatDic.keys():
@@ -236,3 +238,4 @@ if __name__ == '__main__':
     SaveModel()
     true_lst, pred_lst = Predict()
     Evaluete(true_lst, pred_lst)
+    LoadModel()

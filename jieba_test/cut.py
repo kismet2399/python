@@ -17,7 +17,7 @@ print(s_l)
 #        The lower and upper boundary of the range of n-values for different
 #        n-grams to be extracted. All values of n such that min_n <= n <= max_n
 #        will be used. 【中文，分词】，中文，计算
-vectorizer = CountVectorizer(ngram_range=(2, 3),token_pattern=r"\b\w+\b", min_df=0.3)
+vectorizer = CountVectorizer(ngram_range=(2, 3),token_pattern=r"\b\w+\b", min_df=0.4)
 x1 = vectorizer.fit_transform(s_l)
 print(x1)
 print(vectorizer.vocabulary_)

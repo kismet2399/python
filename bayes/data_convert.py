@@ -1,6 +1,5 @@
 import os
 import random
-import sys
 
 file_path = './raw_data'
 # 训练集和测试集的输出文件路径
@@ -47,6 +46,7 @@ def convert_data():
         outfile.write(str(tag) + ' ')
 
         content = infile.read().strip()
+        # 将换行处理成' '
         words = content.replace('\n', ' ').split(' ')
         for word in words:
             if len(word.strip()) < 1:
