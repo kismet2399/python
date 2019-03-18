@@ -58,7 +58,9 @@ def hmm_seg_func(ch=''):
             cur_max_p = None
             cur_max_status = None
             for j in range(STATUS_NUM):
+                # j-->i的转移概率
                 cur_A = A[j][i] if A[j][i] != 0 else -1000000.0
+                # i-->字符的发射概率
                 if ch[index] in B[i]:
                     cur_B = B[i][ch[index]]
                 else:
